@@ -57,8 +57,6 @@ public class StormReportsRecordReader {
         // convert Writable back to string for export
         JavaRDD<String> toSave= processed.map(new WritablesToStringFunction(","));
 
-        toSave.saveAsTextFile(outputPath);
-        
+        toSave.saveAsTextFile(outputPath);   
     }
-
 }
