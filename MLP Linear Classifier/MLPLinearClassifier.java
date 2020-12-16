@@ -37,7 +37,6 @@ public class MLPClassifierLinear {
         DataSetIterator trainIter = new RecordReaderDataSetIterator(rr,batchSize,0,2);
 
         // load the test-evaluation data:
-
         RecordReader rrTest = new CSVRecordReader();
         rrTest.initialize(new FileSplit(new File("linear_data_eval.csv")));
         DataSetIterator testIter = new RecordReaderDataSetIterator(rrTest,batchSize,0,2);
@@ -70,9 +69,8 @@ public class MLPClassifierLinear {
         model.init();
         model.setListeners(new ScoreIterationListener(10));
 
-        for (int n = 0; n < nEpochs; n++){
+        for (int n = 0; n < nEpochs; n++)
             model.fit(trainIter);
-        }
 
         System.out.println("Evaluate model.......");
         Evaluation eval = new Evaluation(numOutputs);
